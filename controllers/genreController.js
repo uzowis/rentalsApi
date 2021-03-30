@@ -1,18 +1,9 @@
 const Joi = require('joi');
-const Genre = require('../models/Genre');
-
-// Validate Api calls Using JOi
-function validate(request) {
-    const schema = Joi.object({
-        name: Joi.string().required().min(3)
-    });
-
-    return schema.validate(request);
-}
+const {Genre, validate} = require('../models/Genre');
 
 // List genres
 const listGenres = async (req, res) =>{
-    const genres = await Genre.find().select('name -_id').sort({name: -1});
+    const genres = await Genre.find().select('name ').sort({name: -1});
     console.log(genres);
     res.send(genres);
     
