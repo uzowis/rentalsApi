@@ -4,7 +4,7 @@ const {Genre} = require('../models/Genre');
 
 // List movies
 const listMovies = async (req, res) =>{
-    const movies = await Movie.find().select('title genre').sort({title: -1});
+    const movies = await Movie.find().select().sort({title: -1});
     console.log(movies);
     res.send(movies);
     
@@ -52,7 +52,9 @@ const listMovie = async (req, res) =>{
 const updateMovie = async (req, res) => {
     const {error} = validate(req.body);
     if(error) return res.status(404).send(error.details[0].message);
-
+    const genre = await Genre.findById(req.body.genreId);
+    if(!genre) return res.status(400).send('Genre does not exist');
+    
     const movie = await Movie.findByIdAndUpdate(req.params.id, {
         $set : {
             title : req.body.title,
