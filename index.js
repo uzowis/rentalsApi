@@ -4,6 +4,7 @@ const app = express();
 const genreRoutes = require('./routes/genreRoutes');
 const customerRoutes = require('./routes/customerRoutes');
 const moviesRoutes = require('./routes/moviesRoutes');
+const rentalRoutes = require('./routes/rentalRoutes');
 
 // connect to db
 mongoose.connect('mongodb://localhost/genreproject')
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/genres/', genreRoutes);
 app.use('/api/customers/', customerRoutes);
 app.use('/api/movies/', moviesRoutes);
+app.use('/api/rentals/', rentalRoutes);
 
 
 const port = process.env.PORT || 3000 ;

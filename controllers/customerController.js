@@ -3,7 +3,7 @@ const {Customer, validate} = require('../models/Customer');
 
 // List customers
 const listCustomers = async (req, res) =>{
-    const customers = await Customer.find().select('name -_id').sort({name: -1});
+    const customers = await Customer.find().select('name _id').sort({name: -1});
     console.log(customers);
     res.send(customers);
     

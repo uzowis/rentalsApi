@@ -26,4 +26,4 @@ function validate(request) {
     
 }
 
-module.exports = {Movie, validate};
+module.exports = {Movie, validate, movieSchema};

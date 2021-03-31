@@ -24,4 +24,4 @@ function validate(request) {
 
 
 // Export the model
-module.exports = {Customer, validate};
+module.exports = {Customer, validate, customerSchema};
