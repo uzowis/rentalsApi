@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey" : "JWT_KEY",
+    "db" : "mydb"
+}
