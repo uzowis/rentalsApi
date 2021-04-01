@@ -7,7 +7,7 @@ const moviesRoutes = require('./routes/moviesRoutes');
 const rentalRoutes = require('./routes/rentalRoutes');
 
 // connect to db
-mongoose.connect('mongodb://localhost/genreproject')
+mongoose.connect('mongodb+srv://root:12345@rentanlapi0.w9p4t.mongodb.net/rentalapidb?retryWrites=true&w=majority')
     .then(() =>console.log('Successfully connected to database'))
     .catch(err => console.error('Couldnt connect to mongodb...', err));
 
