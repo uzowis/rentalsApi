@@ -24,10 +24,11 @@ const createUser = async (req, res) =>{
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
 
+    const token = users.generateAuthToken();
 
     try{
     await user.save();
-    res.send(_.pick(user, ['_id', 'email', 'name', 'isAdmin']));
+    res.header('x-auth-token', token ).send(_.pick(user, ['_id', 'email', 'name', 'isAdmin']));
     console.log(`${user.name}, Your acccount was successfully created`);
     }
     catch(ex){
