@@ -29,8 +29,10 @@ const createUser = async (req, res) =>{
 
     try{
     await user.save();
+    
     res.header('x-auth-token', token ).send(_.pick(user, ['_id', 'email', 'name', 'isAdmin']));
     console.log(`${user.name}, Your acccount was successfully created`);
+    console.log(`${token}`);
     }
     catch(ex){
         console.log(ex.message);
