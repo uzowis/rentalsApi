@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     name: { type: String, required: true, minlength: 3, maxlength: 50},
     password: { type: String, required: true, minlength: 3, maxlength : 1024},
     email: { type: String, required: true, unique: true, minlength: 5, maxlength: 255},
-    isAdmin : Boolean
+    isAdmin : {type : Boolean, default: false}
 });
 
 // generate Authentication Token
