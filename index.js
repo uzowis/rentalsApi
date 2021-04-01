@@ -1,3 +1,4 @@
+const config = require('config');
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
@@ -8,7 +9,7 @@ const rentalRoutes = require('./routes/rentalRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 
 // connect to db
-mongoose.connect('mongodb+srv://root:12345@rentanlapi0.w9p4t.mongodb.net/rentalapidb?retryWrites=true&w=majority')
+mongoose.connect(config.get('db'))
     .then(() =>console.log('Successfully connected to database'))
     .catch(err => console.error('Couldnt connect to mongodb...', err));
 
